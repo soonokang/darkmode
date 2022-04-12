@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+# DarkMode 제작하기
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Prettier 설정하기
 
-## Available Scripts
+root폴더에 `.prettierrc` 파일을 생성한다.
 
-In the project directory, you can run:
+```javascript
+{
+    "arrowParens": "always",
+    "semi": true,
+    "singleQuote": true,
+    "useTabs": false,
+    "trailingComma": "all",
+    "tabWidth": 2,
+    "printWidth": 80
+}
+```
 
-### `yarn start`
+## json파일을 활용하여 import 설정하기
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+root폴더에 `jsconfig.json`파일을 생성한다
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## src폴더 내에 'index.css'에서 폰트 설정 및 여백 설정을 한다.
 
-### `yarn test`
+```javascript
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+body {
+  margin: 0;
+  font-family: 'Jua', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+```
 
-### `yarn build`
+## src폴더 내에 'theme.js' 파일을 만든다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```javascript
+export const lightTheme = {
+  bgColor: '#fff',
+  textColor: '#000',
+  headercolor: '#000',
+  headerTextColor: '#fff',
+};
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+export const darkTheme = {
+  bgColor: '#000',
+  textColor: '#fff',
+  headercolor: '#fff',
+  headerTextColor: '#000',
+};
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ThemeProvider를 이용하여 테마를 전체 감싸서 다크모드 효과 적용
 
-### `yarn eject`
+상단에 import
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```javascript
+import { ThemeProvider } from 'styled-components';
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```javascript
+return (
+  <ThemeProvider theme={toggle ? darkTheme : lightTheme}>
+    <DarkMode onToggle={onToggle} toggle={toggle} />
+  </ThemeProvider>
+);
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 스타일 컴포넌트 작성 시 태그 이외의 스타일을 적용 시켜줄 때는 소괄호를 사용
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```javascript
+const DarkButton = styled(MdDarkMode)`
+  cursor: pointer;
+  color: ${(props) => props.theme.headerTextColor};
+  font-size: 30px;
+`;
+const LightButton = styled(MdOutlineDarkMode)`
+  cursor: pointer;
+  color: ${(props) => props.theme.headerTextColor};
+  font-size: 30px;
+`;
+```
