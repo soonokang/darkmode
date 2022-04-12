@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/soonokang/new_darkmode.git/static/css/main.54fd32f4.css",
+    "main.js": "/soonokang/new_darkmode.git/static/js/main.1c048d02.js",
+    "static/js/787.bb15a4e2.chunk.js": "/soonokang/new_darkmode.git/static/js/787.bb15a4e2.chunk.js",
+    "index.html": "/soonokang/new_darkmode.git/index.html",
+    "main.54fd32f4.css.map": "/soonokang/new_darkmode.git/static/css/main.54fd32f4.css.map",
+    "main.1c048d02.js.map": "/soonokang/new_darkmode.git/static/js/main.1c048d02.js.map",
+    "787.bb15a4e2.chunk.js.map": "/soonokang/new_darkmode.git/static/js/787.bb15a4e2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.54fd32f4.css",
+    "static/js/main.1c048d02.js"
+  ]
+}
