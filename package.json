@@ -2,11 +2,12 @@
   "name": "darkmode",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "https://soonokang.github.io/darkmode",
+  "homepage": "https://github.com/soonokang/new_darkmode.git",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.2.1",
+    "gh-pages": "^3.2.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-icon": "^1.0.0",
