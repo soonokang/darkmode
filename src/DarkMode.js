@@ -15,7 +15,7 @@ const DarkMode = ({ onToggle, toggle }) => {
   return (
     <Container>
       <HeaderWrapper>
-        <h1>HongTeacher</h1>
+        <h1>Soon O Kang</h1>
         {!toggle ? (
           <DarkButton onClick={onToggle} />
         ) : (

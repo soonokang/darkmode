@@ -1,8 +1,8 @@
 {
-  "name": "darkmode",
-  "version": "0.1.0",
-  "private": true,
-  "homepage": "https://github.com/soonokang/new_darkmode",
+  "name": "darkmodeapp",
+    "version": "0.1.0",
+    "private": true,
+    "homepage": "https://soonokang/darkmode",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
